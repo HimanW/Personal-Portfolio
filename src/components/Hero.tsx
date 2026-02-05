@@ -2,6 +2,7 @@ import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
 import {Github, Linkedin, Mail, Download, ArrowDown, Sparkles, Facebook, Instagram, X, Twitter} from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import heroImage from "../images/casual-11.png";
 
 export function Hero() {
   return (
@@ -164,7 +165,7 @@ export function Hero() {
               <div className="relative z-10 group">
                 <div className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 backdrop-blur-sm border-4 border-background/50 shadow-2xl">
                   <ImageWithFallback
-                    src="src/images/casual-11.png"
+                    src={heroImage}
                     alt="Himan Developer - AI/ML Engineer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
