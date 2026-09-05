@@ -1,75 +1,96 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Badge } from "./ui/badge";
-import { Code, Settings, Globe, Database, TestTube, Cloud } from "lucide-react";
+import { Code2, Brain, Sparkles, Server, Database, Cloud } from "lucide-react";
+
+const CATEGORIES = [
+  {
+    icon: Sparkles,
+    title: "Generative AI & LLMs",
+    blurb: "Retrieval, grounding and agentic tool use.",
+    skills: ["NLP", "RAG", "LLMOps", "LangChain", "LangGraph", "MCP", "OpenAI", "Gemini", "Claude", "Hugging Face",
+      "Prompt Engineering", "Embeddings", "Semantic Search"]
+  },
+  {
+    icon: Brain,
+    title: "Machine Learning & Vision",
+    blurb: "Training, benchmarking and shipping models.",
+    skills: ["MLOps", "PyTorch", "TensorFlow", "Keras", "scikit-learn", "OpenCV", "YOLO",
+      "U-Net", "Segment Anything", "Knowledge Distillation"]
+  },
+  {
+    icon: Server,
+    title: "Backend & APIs",
+    blurb: "Services built to run under real traffic.",
+    skills: ["FastAPI", "Flask", "REST", "WebSocket", "Server-Sent Events", "Microservices",
+      "Async Python", "OAuth 2.0", "Webhooks"]
+  },
+  {
+    icon: Database,
+    title: "Data & Storage",
+    blurb: "Vector search, pipelines and warehousing.",
+    skills: ["PostgreSQL", "pgvector", "Milvus", "FAISS", "Firebase", "pandas", "NumPy",
+      "Apache Airflow", "Spark", "Kafka"]
+  },
+  {
+    icon: Cloud,
+    title: "Cloud & DevOps",
+    blurb: "Deployment, containers and GPU workloads.",
+    skills: ["AWS (EC2, S3, IAM)", "Docker", "CUDA / GPU", "Linux", "Git", "Jira", "Agile"]
+  },
+  {
+    icon: Code2,
+    title: "Languages & Frontend",
+    blurb: "Full-stack delivery, not just notebooks.",
+    skills: ["Python", "TypeScript", "JavaScript", "Java", "SQL", "Dart",
+      "Vue 3", "Nuxt 3", "React", "Tailwind", "Flutter"]
+  }
+];
 
 export function Skills() {
-  const skillCategories = [
-    {
-      icon: Code,
-      title: "Programming Languages",
-      skills: ["Python", "R", "Java", "SQL", "JavaScript", "Flutter/Dart", "HTML/CSS"]
-    },
-    {
-      icon: Settings,
-      title: "DevOps & Tools",
-      skills: ["Docker", "Git", "VIM", "NeoVim", "Kubernetes", "Agile", "CI/CD with Jenkins", "Terraform"]
-    },
-    {
-      icon: Globe,
-      title: "JavaScript Libraries & Frameworks",
-      skills: ["Node.js", "React.js", "Bun.js", "Deno", "Vanilla JS", "Next.js"]
-    },
-    {
-      icon: Database,
-      title: "Web Frameworks",
-      skills: ["Express.js", "Fastify"]
-    },
-    {
-      icon: Cloud,
-      title: "Backend as a Service",
-      skills: ["Firebase", "Appwrite"]
-    },
-    {
-      icon: TestTube,
-      title: "Testing",
-      skills: ["Jest"]
-    }
-  ];
-
   return (
-    <section className="py-20 px-4 bg-secondary/5">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl md:text-4xl">Technical Skills</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive expertise across modern development stack with focus on 
-            scalable web applications and DevOps practices.
+    <section className="section scroll-offset" id="skills">
+      <div className="shell">
+        <div className="section-head">
+          <span className="eyebrow">Capabilities</span>
+          <h2>Technical Skills</h2>
+          <p>
+            Applied machine learning, generative AI and computer vision, backed by the
+            backend, data and cloud engineering needed to ship them to production.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category, index) => {
-            const IconComponent = category.icon;
-            return (
-              <Card key={index} className="h-full">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    <IconComponent className="h-5 w-5 text-primary" />
-                    {category.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill, skillIndex) => (
-                      <Badge key={skillIndex} variant="secondary">
-                        {skill}
-                      </Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            );
-          })}
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 rise-stagger">
+          {CATEGORIES.map(({ icon: Icon, title, blurb, skills }) => (
+            <article key={title} className="card card-hover card-pad flex flex-col">
+              <div className="flex items-center gap-3">
+                <span
+                  className="flex items-center justify-center"
+                  style={{
+                    width: "2.5rem",
+                    height: "2.5rem",
+                    borderRadius: "10px",
+                    background: "var(--accent-soft)",
+                    color: "var(--accent-2)",
+                    flexShrink: 0
+                  }}
+                >
+                  <Icon size={19} />
+                </span>
+                <h3 style={{ fontSize: "1.0625rem", fontWeight: 650 }}>{title}</h3>
+              </div>
+
+              <p
+                className="mt-3"
+                style={{ fontSize: ".9375rem", color: "var(--muted-foreground)", lineHeight: 1.6 }}
+              >
+                {blurb}
+              </p>
+
+              <div className="chip-row mt-5">
+                {skills.map((s) => (
+                  <span key={s} className="chip">{s}</span>
+                ))}
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>

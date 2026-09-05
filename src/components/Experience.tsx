@@ -1,89 +1,121 @@
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Badge } from "./ui/badge";
-import { Briefcase, Calendar, MapPin } from "lucide-react";
+import { MapPin, Calendar } from "lucide-react";
+
+const ROLES = [
+  {
+    title: "Junior AI/ML Engineer",
+    company: "Avya Technologies (Pvt) Ltd",
+    location: "Colombo, Sri Lanka",
+    period: "Feb 2026 - Aug 2026",
+    summary:
+      "Built and shipped a multi-tenant enterprise RAG platform, from the microservice backend through to the customer-facing product and its first paying subscriptions.",
+    highlights: [
+      {
+        title: "Enterprise RAG Chatbot Platform",
+        text: "Architected the microservice backend now serving live customers on AWS, and designed the ingestion pipeline that lets clients onboard their own knowledge bases.",
+        tech: ["FastAPI", "LangChain", "Milvus", "PostgreSQL", "AWS", "Nuxt 3"]
+      },
+      {
+        title: "Agentic Tool-Calling Layer",
+        text: "Led development of an MCP server giving the chatbot live access to enterprise databases and REST APIs, extending it from document search to real-time operational answers.",
+        tech: ["MCP", "LLM Tool Calling", "PostgreSQL"]
+      },
+      {
+        title: "Omnichannel Messaging & Commerce",
+        text: "Took the product to WhatsApp Business and Meta Messenger, cleared Meta Business Verification, and delivered the subscription and payments layer behind the first paying customers.",
+        tech: ["Meta Graph API", "Webhooks", "OAuth 2.0", "PayHere"]
+      }
+    ]
+  },
+  {
+    title: "Junior AI/ML Engineer, R&D",
+    company: "Turbo Gen Consultancy (Pvt) Ltd",
+    location: "Colombo, Sri Lanka",
+    period: "Jul 2025 - Jan 2026",
+    summary:
+      "Delivered a computer vision instance segmentation system for agricultural imaging, from dataset engineering and model selection through to on-device deployment.",
+    highlights: [
+      {
+        title: "Crop Instance Segmentation",
+        text: "Benchmarked detection and segmentation architectures to find the best accuracy-to-performance balance for edge hardware, then improved accuracy on small and overlapping objects through targeted augmentation and fine-tuning.",
+        tech: ["PyTorch", "YOLOv8 / v11-seg", "U-Net", "SAM", "SAHI"]
+      },
+      {
+        title: "Production Inference & Mobile Delivery",
+        text: "Deployed the model as an inference service, converted weights for edge devices, and integrated it into a Flutter mobile application.",
+        tech: ["FastAPI", "TensorFlow", "Flutter", "Docker"]
+      },
+      {
+        title: "Automated Annotation Pipeline",
+        text: "Cut manual labeling effort substantially by using the trained model to pre-label new images for human review, and set up the team's annotation and GPU infrastructure.",
+        tech: ["CVAT", "Supervisely", "CUDA"]
+      }
+    ]
+  }
+];
 
 export function Experience() {
-  const experiences = [
-    {
-      title: "AI/ML Engineer",
-      company: "Avya Technologies",
-      location: "Remote",
-      period: "2022 - Present",
-      description: "Lead full-stack development projects using React, Node.js, and TypeScript. Implemented CI/CD pipelines with Jenkins and managed containerized applications with Docker and Kubernetes.",
-      technologies: ["React", "Node.js", "TypeScript", "Docker", "Kubernetes", "Jenkins"]
-    },
-      {
-      title: "AI/ML Engineer",
-      company: "TurboGen Pvt Ltd",
-      location: "Remote",
-      period: "2022 - Present",
-      description: "Lead full-stack development projects using React, Node.js, and TypeScript. Implemented CI/CD pipelines with Jenkins and managed containerized applications with Docker and Kubernetes.",
-      technologies: ["React", "Node.js", "TypeScript", "Docker", "Kubernetes", "Jenkins"]
-    },
-    {
-      title: "AI/ML Solution Developer",
-      company: "Digital Innovations Ltd.",
-      location: "New York, NY",
-      period: "2020 - 2022",
-      description: "Developed and maintained web applications using modern JavaScript frameworks. Collaborated with DevOps team to implement automated deployment processes and infrastructure as code with Terraform.",
-      technologies: ["JavaScript", "Express.js", "Firebase", "Terraform", "Git"]
-    },
-    {
-      title: "Python Developer",
-      company: "StartupCorp",
-      location: "San Francisco, CA",
-      period: "2019 - 2020",
-      description: "Built responsive web applications and RESTful APIs. Worked with cross-functional teams using Agile methodologies to deliver high-quality software solutions.",
-      technologies: ["PHP", "JavaScript", "SQL", "Jest", "Agile"]
-    }
-  ];
-
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center space-y-4 mb-12">
-          <h2 className="text-3xl md:text-4xl">Professional Experience</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Over 5 years of experience building scalable web applications and 
-            leading development teams in fast-paced environments.
+    <section className="section scroll-offset" id="experience" style={{ background: "var(--surface)" }}>
+      <div className="shell-narrow">
+        <div className="section-head">
+          <span className="eyebrow">Experience</span>
+          <h2>Where I&apos;ve Shipped</h2>
+          <p>
+            Over a year of full-time industry experience designing, building and deploying
+            production AI systems for enterprise clients.
           </p>
         </div>
-        
-        <div className="space-y-6">
-          {experiences.map((exp, index) => (
-            <Card key={index}>
-              <CardHeader>
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                  <div>
-                    <CardTitle className="flex items-center gap-2">
-                      <Briefcase className="h-5 w-5 text-primary" />
-                      {exp.title}
-                    </CardTitle>
-                    <p className="text-primary mt-1">{exp.company}</p>
-                  </div>
-                  <div className="flex flex-col md:items-end gap-1">
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <Calendar className="h-4 w-4" />
-                      {exp.period}
-                    </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
-                      <MapPin className="h-4 w-4" />
-                      {exp.location}
-                    </div>
-                  </div>
+
+        <div className="flex flex-col gap-12">
+          {ROLES.map((role) => (
+            <article key={role.company}>
+              {/* Role header */}
+              <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+                <div>
+                  <h3 style={{ fontSize: "1.3rem" }}>{role.title}</h3>
+                  <p className="mt-1" style={{ color: "var(--accent-2)", fontWeight: 600 }}>
+                    {role.company}
+                  </p>
                 </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4">{exp.description}</p>
-                <div className="flex flex-wrap gap-2">
-                  {exp.technologies.map((tech, techIndex) => (
-                    <Badge key={techIndex} variant="outline">
-                      {tech}
-                    </Badge>
-                  ))}
+                <div
+                  className="flex flex-col gap-1"
+                  style={{ fontSize: ".875rem", color: "var(--muted-foreground)" }}
+                >
+                  <span className="flex items-center gap-2">
+                    <Calendar size={14} /> {role.period}
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <MapPin size={14} /> {role.location}
+                  </span>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+
+              <p className="lede mt-5">{role.summary}</p>
+
+              {/* Highlights */}
+              <div
+                className="mt-8 flex flex-col gap-7"
+                style={{ paddingLeft: "1.75rem", borderLeft: "1px solid var(--border)" }}
+              >
+                {role.highlights.map((h) => (
+                  <div key={h.title} className="relative">
+                    <span className="timeline-marker" style={{ left: "-2.02rem" }} />
+                    <h4>{h.title}</h4>
+                    <p
+                      className="mt-2"
+                      style={{ fontSize: ".9375rem", color: "var(--muted-foreground)", lineHeight: 1.7 }}
+                    >
+                      {h.text}
+                    </p>
+                    <div className="chip-row mt-4">
+                      {h.tech.map((t) => (
+                        <span key={t} className="chip">{t}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </div>
