@@ -76,7 +76,7 @@ export function Hero() {
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
-              <a className="btn btn-primary" href="/Resume.pdf" download>
+              <a className="btn btn-primary" href="/Himan-Withana.pdf" download>
                 <Download size={17} />
                 Download Resume
               </a>
