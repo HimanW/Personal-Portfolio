@@ -46,7 +46,7 @@ const CATEGORIES = [
 
 export function Skills() {
   return (
-    <section className="section scroll-offset" id="skills">
+    <section className="section scroll-offset" id="skills" style={{ background: "var(--surface)" }}>
       <div className="shell">
         <div className="section-head">
           <span className="eyebrow">Capabilities</span>

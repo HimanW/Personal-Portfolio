@@ -157,7 +157,7 @@ function Card({ p }: { p: Project }) {
 
 export function Projects() {
   return (
-    <section className="section scroll-offset" id="projects">
+    <section className="section scroll-offset" id="projects" style={{ background: "var(--surface)" }}>
       <div className="shell">
         <div className="section-head">
           <span className="eyebrow">Selected Work</span>

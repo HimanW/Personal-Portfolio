@@ -622,7 +622,6 @@
   --footer-a2: #4f46e5;
   /* indigo */
   position: relative;
-  background: var(--surface);
   border-top: 1px solid var(--border);
   overflow: hidden;
 }
@@ -758,4 +757,80 @@
 
 .dark .vz-panel {
   --vz-wash: 9%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Negative Mask Logo Effect (Editorial Inverted Mask Motion)                 */
+/* -------------------------------------------------------------------------- */
+.negative-mask-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  margin: -0.25rem -0.65rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  overflow: hidden;
+  user-select: none;
+  cursor: pointer;
+}
+
+.negative-mask-base {
+  display: inline-block;
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  white-space: nowrap;
+}
+
+.negative-mask-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  background: #09090b;
+  pointer-events: none;
+  white-space: nowrap;
+  -webkit-mask-image: radial-gradient(circle, black 0%, black 72%, transparent 98%);
+  mask-image: radial-gradient(circle, black 0%, black 72%, transparent 98%);
+  -webkit-mask-size: 52px 52px;
+  mask-size: 52px 52px;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: -60px 50%;
+  mask-position: -60px 50%;
+  animation: negativeMaskCircleGlide 5.5s infinite cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.dark .negative-mask-layer {
+  background: #f4f4f5;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.negative-mask-text-inverted {
+  color: #fafafa;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  white-space: nowrap;
+}
+
+.dark .negative-mask-text-inverted {
+  color: #090a0f;
+}
+
+@keyframes negativeMaskCircleGlide {
+  0% {
+    -webkit-mask-position: -60px 50%;
+    mask-position: -60px 50%;
+  }
+  35%, 100% {
+    -webkit-mask-position: calc(100% + 60px) 50%;
+    mask-position: calc(100% + 60px) 50%;
+  }
 }

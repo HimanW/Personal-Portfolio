@@ -18,7 +18,7 @@ const COMMUNITY = [
 
 export function Education() {
   return (
-    <section className="section scroll-offset" id="education" style={{ background: "var(--surface)" }}>
+    <section className="section scroll-offset" id="education">
       <div className="shell">
         <div className="section-head">
           <span className="eyebrow">Background</span>

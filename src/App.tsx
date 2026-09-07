@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Hero } from "./components/Hero";
+import { About } from "./components/About";
 import { Skills } from "./components/Skills";
 import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
@@ -8,8 +9,10 @@ import { Education } from "./components/Education";
 import { Contact } from "./components/Contact";
 import { ThemeProvider } from "./components/theme-provider";
 import { ThemeToggle } from "./components/theme-toggle";
+import { NegativeMaskLogo } from "./components/NegativeMaskLogo";
 
 const NAV = [
+  { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
@@ -39,9 +42,7 @@ function Nav() {
       }}
     >
       <div className="shell flex items-center justify-between px-6" style={{ height: "4.5rem" }}>
-        <a href="#top" style={{ fontWeight: 700, fontSize: "1.0625rem", letterSpacing: "-0.02em" }}>
-          Himan<span style={{ color: "var(--accent-2)" }}>.</span>
-        </a>
+        <NegativeMaskLogo />
 
         <nav className="hidden md:flex items-center gap-1">
           {NAV.map((item) => (
@@ -49,7 +50,14 @@ function Nav() {
               key={item.label}
               href={item.href}
               className="px-3 py-2"
-              style={{ fontSize: ".9rem", fontWeight: 500, color: "var(--muted-foreground)", borderRadius: "8px" }}
+              style={{
+                fontFamily: "'Josefin Sans', sans-serif",
+                fontSize: ".95rem",
+                fontWeight: 600,
+                letterSpacing: "0.02em",
+                color: "var(--muted-foreground)",
+                borderRadius: "8px"
+              }}
               onMouseEnter={(e) => (e.currentTarget.style.color = "var(--foreground)")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "var(--muted-foreground)")}
             >
@@ -86,9 +94,11 @@ function Nav() {
                 href={item.href}
                 onClick={() => setOpen(false)}
                 style={{
+                  fontFamily: "'Josefin Sans', sans-serif",
                   padding: ".75rem 0",
-                  fontSize: "1rem",
-                  fontWeight: 500,
+                  fontSize: "1.05rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.02em",
                   color: "var(--muted-foreground)",
                   borderBottom: "1px solid var(--border)"
                 }}
@@ -111,6 +121,7 @@ export default function App() {
 
         <main>
           <Hero />
+          <About />
           <Skills />
           <Experience />
           <Projects />
@@ -120,18 +131,24 @@ export default function App() {
 
         <footer className="site-footer">
           <div className="shell px-6" style={{ paddingBlock: "3rem", textAlign: "center" }}>
-            <p style={{ fontWeight: 700, fontSize: "1.0625rem", letterSpacing: "-0.02em" }}>
+            <p style={{ fontFamily: "'Dancing Script', cursive", fontWeight: 700, fontSize: "1.5rem", letterSpacing: "-0.02em" }}>
               Himan Withana
             </p>
             <p
+              className="mt-1"
+              style={{ fontFamily: "'Josefin Sans', sans-serif", fontSize: "1rem", fontWeight: 600, letterSpacing: "0.03em", color: "var(--foreground)" }}
+            >
+              Hard Work, Clean Code, Strong Roots
+            </p>
+            <p
               className="mt-2"
-              style={{ fontSize: ".9375rem", color: "var(--muted-foreground)" }}
+              style={{ fontFamily: "'Josefin Sans', sans-serif", fontSize: ".9375rem", color: "var(--muted-foreground)" }}
             >
               AI/ML Engineer · Generative AI &amp; LLM Applications · Computer Vision · Full-Stack AI Engineering
             </p>
             <p
               className="mt-6"
-              style={{ fontSize: ".8125rem", color: "var(--muted-foreground)", opacity: .75 }}
+              style={{ fontFamily: "'Josefin Sans', sans-serif", fontSize: ".8125rem", color: "var(--muted-foreground)", opacity: .75 }}
             >
               © {new Date().getFullYear()} Himan Withana. All rights reserved.
             </p>

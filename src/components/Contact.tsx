@@ -35,7 +35,7 @@ export function Contact() {
   };
 
   return (
-    <section className="section scroll-offset" id="contact">
+    <section className="section scroll-offset" id="contact" style={{ background: "var(--surface)" }}>
       <div className="shell">
         <div className="section-head">
           <span className="eyebrow">Contact</span>
