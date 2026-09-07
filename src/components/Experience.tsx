@@ -55,7 +55,7 @@ const ROLES = [
 
 export function Experience() {
   return (
-    <section className="section scroll-offset" id="experience" style={{ background: "var(--surface)" }}>
+    <section className="section scroll-offset" id="experience">
       <div className="shell-narrow">
         <div className="section-head">
           <span className="eyebrow">Experience</span>
